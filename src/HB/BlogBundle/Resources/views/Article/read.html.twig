@@ -1,0 +1,9 @@
+{% extends "::base.html.twig" %}
+{% block title %}
+Bienvenue {{ article.id }} !
+{% endblock %}
+{% block body %}
+<h1>Détail de l'article {{ article.id }} </h1> 
+<h2>{{ article.title }}</h2>
+{{ article.content|nl2br }}
+{% endblock %}
