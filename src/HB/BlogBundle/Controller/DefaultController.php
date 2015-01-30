@@ -16,4 +16,12 @@ class DefaultController extends Controller
     {
         return array('name' => $name);
     }
+    /**
+     * @Route("/fr/{name}")
+     * @Template()
+     */
+    public function frAction($name)
+    {
+        return array('name' => $name);
+    }
 }
