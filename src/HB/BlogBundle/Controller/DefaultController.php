@@ -24,4 +24,12 @@ class DefaultController extends Controller
     {
         return array('name' => $name);
     }
+    /**
+     * @Route("/")
+     * @Template()
+     */
+    public function blogAction()
+    {
+        return array();
+    }
 }

@@ -22,7 +22,9 @@ class ArticleController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        $repository = $this->getDoctrine()->getRepository("HBBlogBundle:Article");
+        $articles = $repository->findAll();
+        return array('articles'=>$articles);
     }
     /**
      * Affiche un formulaire de création
@@ -56,7 +58,9 @@ class ArticleController extends Controller
      */
     public function editAction($id)
     {
-        return array('id' => $id);
+        $repository = $this->getDoctrine()->getRepository("HBBlogBundle:Article");
+        $article = $repository->find($id);
+        return array('article' => $article);
     }
     /**
      * Affiche un formulaire de suppression
