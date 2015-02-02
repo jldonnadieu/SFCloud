@@ -1,5 +1,14 @@
 {% extends "HBBlogBundle:Article:article.html.twig" %}
 
 {% block body %}
-    <h1>Ajouter un article</h1> 
+    <h1>{% if editForm >0 %}Modifier{% else %}Ajouter{% endif %} un article</h1> 
+<div class="newarticle">
+  <form method="post" {{ form_enctype(form) }}>
+      {{ form_label(form.title,"Titre") }}<br />{{ form_widget(form.title) }}<br />
+      {{ form_label(form.content,"Contenu") }} <br />{{ form_widget(form.content) }}<br />
+      
+      {% if editForm >0 %}{{ form_rest(form) }}{% endif %}
+    <input type="submit" class="btn btn-primary" />
+  </form>
+</div>    
 {% endblock %}

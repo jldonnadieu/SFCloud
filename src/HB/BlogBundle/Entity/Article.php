@@ -55,8 +55,14 @@ class Article
      * @ORM\Column(name="visible", type="boolean")
      */
     private $visible;
-
-
+    /*
+     * Constructeur pour mettre des valeurs par défaut
+     */
+    public function __construct(){
+        $this->creationDate = new \DateTime();
+        $this->modificationDate = new \DateTime();
+        $this->visible = false;
+        }
     /**
      * Get id
      *
@@ -119,9 +125,9 @@ class Article
      * @param \DateTime $creationDate
      * @return Article
      */
-    public function setCreationDate($creationDate)
+    public function setCreationDate($creationdate)
     {
-        $this->creationDate = $creationDate;
+        $this->creationDate = $creationdate;
 
         return $this;
     }
@@ -142,9 +148,9 @@ class Article
      * @param \DateTime $modificationDate
      * @return Article
      */
-    public function setModificationDate($modificationDate)
+    public function setModificationDate($modificationdate)
     {
-        $this->modificationDate = $modificationDate;
+        $this->modificationDate = $modificationdate;
 
         return $this;
     }

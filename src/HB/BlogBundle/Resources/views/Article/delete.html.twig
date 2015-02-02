@@ -1,7 +1,16 @@
-{% extends "::base.html.twig" %}
-{% block title %}
-Bienvenue {{ id }} !
-{% endblock %}
+{% extends "HBBlogBundle:Article:article.html.twig" %}
+
 {% block body %}
-Delete {{ id }} !
+    <h1>Supprimer un article</h1> 
+<div class="newarticle">
+  <form method="post" {{ form_enctype(form) }}>
+      <h3>{{ article.title }}</h3>
+      <div>{{ article.content }}<br />
+{% if article.visible %}<br />Cet article est visible{% endif %}
+<br />Date de création : {{article.creationDate|date('Y-m-d H:i:s')}}
+<br />Date de dernière modification : {{article.modificationDate|date('Y-m-d H:i:s')}}<br />
+      </div>      
+    <input type="submit" class="btn btn-primary" value="Confirmer la suppression" />
+  </form>
+</div>    
 {% endblock %}

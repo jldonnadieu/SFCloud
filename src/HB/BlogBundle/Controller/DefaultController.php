@@ -30,6 +30,8 @@ class DefaultController extends Controller
      */
     public function blogAction()
     {
-        return array();
+        $repository = $this->getDoctrine()->getRepository("HBBlogBundle:Article");
+        $articles = $repository->findAll();
+        return array('articles'=>$articles);
     }
 }

@@ -1,4 +1,16 @@
 {% extends "::base.html.twig" %}
 {% block body %}
+    <div class="menu">
     <a href="/article">Liste des articles</a><br />
+    </div>
+    <div class="homepage">
+        {% for article in articles %}
+            {% if loop.index < 6 %}
+            <h3>{{ article.title }}</h3>
+            {{article.content|nl2br}}
+            {% endif %}
+        {% else %}
+            Pas encore d'article
+        {% endfor %}
+    </div>
 {% endblock %}

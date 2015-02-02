@@ -5,5 +5,9 @@ Bienvenue {{ article.id }} !
 {% block body %}
 <h1>Détail de l'article {{ article.id }} </h1> 
 <h2>{{ article.title }}</h2>
-{{ article.content|nl2br }}
+{{ article.content|nl2br }}<br />
+{% if article.visible %}<br />Cet article est visible{% endif %}
+<br />Date de création : {{article.creationDate|date('Y-m-d H:i:s')}}
+<br />Date de dernière modification : {{article.modificationDate|date('Y-m-d H:i:s')}}<br />
+<a href="/article/{{ article.id }}/edit">Éditer l'article</a><br />
 {% endblock %}
